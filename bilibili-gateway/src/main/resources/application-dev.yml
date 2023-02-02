@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: bilibili_admin_admin
+          uri: lb://bilibili-admin
+          predicates:
+            - Path=/api/admin/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
