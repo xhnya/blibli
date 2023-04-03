@@ -1,5 +1,6 @@
 package com.xhn.bilibili.cloud.controller;
 
+import com.xhn.bilibili.cloud.utils.ConstantPropertiesUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope
 public class DemoController {
-    @Value("${alipay.app.id}")
-    private String testeName;
+//    @GetMapping("/userName")
+//    public String userName()   {
+//        return ConstantPropertiesUtils.BUCKET_NAME+"====="+
+//                ConstantPropertiesUtils.ACCESS_KEY_ID+"====="+
+//                ConstantPropertiesUtils.ACCESS_KEY_SECRET+"====="+
+//                ConstantPropertiesUtils.END_POIND;
+//    }
 
-    @GetMapping("/naocs")
-    public String getNacos()   {
-        return testeName;
-    }
 
 }

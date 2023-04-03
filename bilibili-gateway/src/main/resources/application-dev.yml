@@ -8,3 +8,10 @@ spring:
             - Path=/api/admin/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: bilibili_admin_cloud
+          uri: lb://bilibili-cloud
+          predicates:
+            - Path=/api/cloud/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
