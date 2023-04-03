@@ -4,34 +4,34 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 页面的图片。
- * @TableName page_images
+ * 门户位置表
+ * @TableName page_position
  */
-public class PageImages implements Serializable {
+public class PagePosition implements Serializable {
     /**
      * 
      */
     private Long id;
 
     /**
-     * 图片链接
+     * 名称
      */
-    private String url;
+    private String name;
 
     /**
-     * 描述
+     * 
      */
-    private String describe;
+    private Integer code;
 
     /**
-     * 图片的位置
+     * 
      */
-    private Integer type;
+    private Integer sort;
 
     /**
-     * 更新人
+     * 
      */
-    private String updateName;
+    private Integer status;
 
     /**
      * 
@@ -60,59 +60,59 @@ public class PageImages implements Serializable {
     }
 
     /**
-     * 图片链接
+     * 名称
      */
-    public String getUrl() {
-        return url;
+    public String getName() {
+        return name;
     }
 
     /**
-     * 图片链接
+     * 名称
      */
-    public void setUrl(String url) {
-        this.url = url;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * 描述
+     * 
      */
-    public String getDescribe() {
-        return describe;
+    public Integer getCode() {
+        return code;
     }
 
     /**
-     * 描述
+     * 
      */
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     /**
-     * 图片的位置
+     * 
      */
-    public Integer getType() {
-        return type;
+    public Integer getSort() {
+        return sort;
     }
 
     /**
-     * 图片的位置
+     * 
      */
-    public void setType(Integer type) {
-        this.type = type;
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
     /**
-     * 更新人
+     * 
      */
-    public String getUpdateName() {
-        return updateName;
+    public Integer getStatus() {
+        return status;
     }
 
     /**
-     * 更新人
+     * 
      */
-    public void setUpdateName(String updateName) {
-        this.updateName = updateName;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     /**
@@ -154,12 +154,12 @@ public class PageImages implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        PageImages other = (PageImages) that;
+        PagePosition other = (PagePosition) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-            && (this.getDescribe() == null ? other.getDescribe() == null : this.getDescribe().equals(other.getDescribe()))
-            && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
-            && (this.getUpdateName() == null ? other.getUpdateName() == null : this.getUpdateName().equals(other.getUpdateName()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -169,10 +169,10 @@ public class PageImages implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
-        result = prime * result + ((getDescribe() == null) ? 0 : getDescribe().hashCode());
-        result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-        result = prime * result + ((getUpdateName() == null) ? 0 : getUpdateName().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
+        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
+        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -185,10 +185,10 @@ public class PageImages implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", url=").append(url);
-        sb.append(", describe=").append(describe);
-        sb.append(", type=").append(type);
-        sb.append(", updateName=").append(updateName);
+        sb.append(", name=").append(name);
+        sb.append(", code=").append(code);
+        sb.append(", sort=").append(sort);
+        sb.append(", status=").append(status);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

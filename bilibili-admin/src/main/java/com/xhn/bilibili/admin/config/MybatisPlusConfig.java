@@ -1,4 +1,4 @@
-package com.xhn.bilibili.common.config;
+package com.xhn.bilibili.admin.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -8,8 +8,9 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author xhn
- * @date 2022/1/21 21:49
- * @description: //分页插件
+ * @email hain.xiao@outlook.com
+ * @date 2023/2/16 15:09
+ * @description:
  */
 @Configuration
 public class MybatisPlusConfig {

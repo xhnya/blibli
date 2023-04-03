@@ -18,6 +18,7 @@
         <module>bilibili-common</module>
         <module>bilibili-admin</module>
         <module>bilibili-gateway</module>
+        <module>bilibili-cloud</module>
     </modules>
 
     <properties>

@@ -9,3 +9,10 @@ management:
     web:
       exposure:
         include: '*'
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG #设置Gateway的日志级别为DEBUG
+  file:
+    path: I:\JavaSource\bilibili\logs\bilibili-gateway\ #设置输出日志文件的位置
