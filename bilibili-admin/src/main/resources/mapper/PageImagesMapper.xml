@@ -7,22 +7,40 @@
     <resultMap id="BaseResultMap" type="com.xhn.bilibili.admin.entity.PageImagesEntity">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="imageUrl" column="image_url" jdbcType="VARCHAR"/>
-            <result property="describe" column="describe" jdbcType="VARCHAR"/>
+            <result property="des" column="describe" jdbcType="VARCHAR"/>
             <result property="type" column="type" jdbcType="INTEGER"/>
             <result property="showStatus" column="show_status" jdbcType="INTEGER"/>
             <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="sort" column="sort" jdbcType="INTEGER"/>
             <result property="updateId" column="update_id" jdbcType="BIGINT"/>
             <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+    <resultMap id="pageImageResultMap" type="java.util.HashMap">
+        <id property="id" column="id" />
+        <result property="des" column="des" />
+    </resultMap>
+
     <sql id="Base_Column_List">
-        id,image_url,describe,
-        type,show_status,status,
+        id,image_url,des,
+        type,show_status,status,sort,
         update_id,update_time,create_time
     </sql>
     <select id="getPageImageList" resultType="com.xhn.bilibili.admin.entity.PageImagesEntity">
         select * from page_images
+    </select>
+    <select id="getPageImageDesList" resultMap="pageImageResultMap">
+        select id,t.des from page_images t where `des` like concat('%',#{value},'%') order by update_time desc limit 10
+    </select>
+    <select id="getPageImagesList" resultType="com.xhn.bilibili.admin.entity.PageImagesEntity">
+        select * from page_images
+        <where>
+            type=#{pageImagesListVo.type}
+            <if test="pageImagesListVo.showStatus!=null">and show_status=#{pageImagesListVo.showStatus}</if>
+            <if test="pageImagesListVo.des!=null">and des=#{pageImagesListVo.des}</if>
+        </where>
+        order by update_time desc
     </select>
 
 </mapper>

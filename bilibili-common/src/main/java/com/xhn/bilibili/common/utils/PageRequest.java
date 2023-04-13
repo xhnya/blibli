@@ -20,6 +20,13 @@ public class PageRequest {
         this.sortBy = sortBy;
         this.isAsc = isAsc;
     }
+    public PageRequest(int page) {
+        this.page = page;
+    }
+    public PageRequest(int page, int size) {
+        this.page = page;
+        this.size = size;
+    }
 
     public int getPage() {
         return page;

@@ -2,11 +2,18 @@ package com.xhn.bilibili.admin.controller;
 
 import com.xhn.bilibili.admin.entity.PageImagesEntity;
 import com.xhn.bilibili.admin.service.PageImagesService;
+import com.xhn.bilibili.admin.vo.PageImagesListVo;
 import com.xhn.bilibili.common.utils.PageRequest;
 import com.xhn.bilibili.common.utils.PageUtils;
 import com.xhn.bilibili.common.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author xhn
@@ -23,8 +30,16 @@ public class PageImagesController {
 
 
     @GetMapping("getPageImages")
-    public Result getPageImages(@RequestParam PageRequest pageRequest) {
+    public Result getPageImages(@RequestParam Integer page) {
+        PageRequest pageRequest = new PageRequest(page);
         PageUtils result=pageImagesService.getPageImageList(pageRequest);
+        return Result.ok().data("data",result);
+    }
+
+    @GetMapping("getPageImagesList")
+    public Result getPageImagesList(@Valid PageImagesListVo pageImagesListVo) {
+        PageRequest pageRequest = new PageRequest(pageImagesListVo.getCurrentPage(), pageImagesListVo.getSize());
+        PageUtils result=pageImagesService.getPageImagesList(pageRequest,pageImagesListVo);
         return Result.ok().data("data",result);
     }
 
@@ -47,5 +62,17 @@ public class PageImagesController {
     }
 
 
+    /**
+     * 模糊查询描述----选择框
+     * @param value
+     * @return
+     */
+    @GetMapping("selectRotationChartDes")
+    public Result selectRotationChartDes(@RequestParam String value) {
+
+        List<Map<Long, String>> result =pageImagesService.getPageImageDesList(value);
+
+        return Result.ok().data("data",result);
+    }
 
 }
