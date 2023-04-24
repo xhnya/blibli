@@ -1,0 +1,7 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      resolve-lazily: false
+      max-file-size: 1024MB # Spring 传输大小设置
+      max-request-size: 1024MB  # Spring 传输大小设置

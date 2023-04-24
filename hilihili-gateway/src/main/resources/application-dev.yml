@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: hilihili_admin_admin
+          uri: lb://hilihili-admin
+          predicates:
+            - Path=/api/admin/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: hilihili_admin_cloud
+          uri: lb://hilihili-cloud
+          predicates:
+            - Path=/api/cloud/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: hilihili_admin_video
+          uri: lb://hilihili-video
+          predicates:
+            - Path=/api/video/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: hilihili_admin
+          uri: lb://hilihili-admin
+          predicates:
+            - Path=/admin/**

@@ -9,16 +9,17 @@
         <version>2.7.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>bilibili-parent</groupId>
-    <artifactId>bilibili</artifactId>
+    <groupId>hilihili-parent</groupId>
+    <artifactId>hilihili</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <description>管理依赖版本</description>
     <modules>
-        <module>bilibili-common</module>
-        <module>bilibili-admin</module>
-        <module>bilibili-gateway</module>
-        <module>bilibili-cloud</module>
+        <module>hilihili-common</module>
+        <module>hilihili-video</module>
+        <module>hilihili-admin</module>
+        <module>hilihili-gateway</module>
+        <module>hilihili-cloud</module>
     </modules>
 
     <properties>
