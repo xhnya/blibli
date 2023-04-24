@@ -13,7 +13,7 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
  * @description: 跨域统一配置
  */
 @Configuration
-public class BiliBiliCorsConfiguration {
+public class HilihiliCorsConfiguration {
 
     @Bean
     public CorsWebFilter corsWebFilter(){

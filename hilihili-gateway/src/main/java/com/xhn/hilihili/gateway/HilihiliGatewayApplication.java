@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class BilibiliGatewayApplication {
+public class HilihiliGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BilibiliGatewayApplication.class, args);
+        SpringApplication.run(HilihiliGatewayApplication.class, args);
     }
 
 }
