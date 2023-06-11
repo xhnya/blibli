@@ -15,7 +15,8 @@ public class AdminConstant {
      * 页面位置的枚举类
      */
     public enum PageLocationEnum{
-        Rotation_CHAART(10001,"轮播图");
+        Rotation_CHAART(10001,"轮播图"),
+        TOP_BANNER(10002,"顶部banner");
         PageLocationEnum(int code, String msg){
             this.code = code;
             this.msg = msg;

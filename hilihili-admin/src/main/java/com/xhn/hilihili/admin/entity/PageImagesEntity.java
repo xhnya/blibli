@@ -34,6 +34,9 @@ public class PageImagesEntity implements Serializable {
 
     /**
      * 图片位置
+     * 设置位置 com.xhn.hilihili.common.constant  AdminConstant  PageLocationEnum
+     * 10001 轮播图
+     * 10002 顶部banner
      */
     private Integer type;
 
