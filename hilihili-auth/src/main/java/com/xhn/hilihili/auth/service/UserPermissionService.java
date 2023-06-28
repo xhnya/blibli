@@ -1,6 +1,6 @@
 package com.xhn.hilihili.auth.service;
 
-import com.xhn.hilihili.auth.entity.UserPermission;
+import com.xhn.hilihili.auth.entity.UserPermissionEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,6 +9,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 )】的数据库操作Service
 * @createDate 2023-06-11 19:46:15
 */
-public interface UserPermissionService extends IService<UserPermission> {
+public interface UserPermissionService extends IService<UserPermissionEntity> {
 
 }

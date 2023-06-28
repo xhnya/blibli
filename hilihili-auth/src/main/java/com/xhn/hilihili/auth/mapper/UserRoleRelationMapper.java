@@ -1,6 +1,6 @@
 package com.xhn.hilihili.auth.mapper;
 
-import com.xhn.hilihili.auth.entity.UserRoleRelation;
+import com.xhn.hilihili.auth.entity.UserRoleRelationEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2023-06-11 19:46:15
 * @Entity com.xhn.hilihili.auth.entity.UserRoleRelation
 */
-public interface UserRoleRelationMapper extends BaseMapper<UserRoleRelation> {
+public interface UserRoleRelationMapper extends BaseMapper<UserRoleRelationEntity> {
 
 }
 

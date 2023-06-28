@@ -1,7 +1,7 @@
 package com.xhn.hilihili.auth.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xhn.hilihili.auth.entity.Route;
+import com.xhn.hilihili.auth.entity.RouteEntity;
 import com.xhn.hilihili.auth.service.RouteService;
 import com.xhn.hilihili.auth.mapper.RouteMapper;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 * @createDate 2023-06-11 19:46:15
 */
 @Service
-public class RouteServiceImpl extends ServiceImpl<RouteMapper, Route>
+public class RouteServiceImpl extends ServiceImpl<RouteMapper, RouteEntity>
     implements RouteService{
 
 }

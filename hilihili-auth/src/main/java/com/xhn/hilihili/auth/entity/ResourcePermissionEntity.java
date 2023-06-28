@@ -9,32 +9,27 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 系统资源表，用于定义系统中的资源，如文件、图片、视频等
- * @TableName resource
+ * 资源和权限关联表，用于建立资源和权限之间的关联关系
+ * @TableName resource_permission
  */
-@TableName(value ="resource")
+@TableName(value ="resource_permission")
 @Data
-public class Resource implements Serializable {
+public class ResourcePermissionEntity implements Serializable {
     /**
-     * 资源ID
+     * 关联ID
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 资源名称
+     * 资源ID
      */
-    private String name;
+    private Long resourceId;
 
     /**
-     * 资源类型
+     * 权限ID
      */
-    private String type;
-
-    /**
-     * 资源URL
-     */
-    private String url;
+    private Long permissionId;
 
     /**
      * 创建时间
@@ -60,11 +55,10 @@ public class Resource implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Resource other = (Resource) that;
+        ResourcePermissionEntity other = (ResourcePermissionEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
+            && (this.getResourceId() == null ? other.getResourceId() == null : this.getResourceId().equals(other.getResourceId()))
+            && (this.getPermissionId() == null ? other.getPermissionId() == null : this.getPermissionId().equals(other.getPermissionId()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -74,9 +68,8 @@ public class Resource implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
+        result = prime * result + ((getResourceId() == null) ? 0 : getResourceId().hashCode());
+        result = prime * result + ((getPermissionId() == null) ? 0 : getPermissionId().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -89,9 +82,8 @@ public class Resource implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", type=").append(type);
-        sb.append(", url=").append(url);
+        sb.append(", resourceId=").append(resourceId);
+        sb.append(", permissionId=").append(permissionId);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

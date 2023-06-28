@@ -14,7 +14,7 @@ import lombok.Data;
  */
 @TableName(value ="user_users")
 @Data
-public class UserUsers implements Serializable {
+public class UserUsersEntity implements Serializable {
     /**
      * 用户id
      */
@@ -90,7 +90,7 @@ public class UserUsers implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        UserUsers other = (UserUsers) that;
+        UserUsersEntity other = (UserUsersEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
             && (this.getFullName() == null ? other.getFullName() == null : this.getFullName().equals(other.getFullName()))

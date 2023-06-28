@@ -1,7 +1,7 @@
 package com.xhn.hilihili.auth.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xhn.hilihili.auth.entity.Log;
+import com.xhn.hilihili.auth.entity.LogEntity;
 import com.xhn.hilihili.auth.service.LogService;
 import com.xhn.hilihili.auth.mapper.LogMapper;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 * @createDate 2023-06-11 19:46:31
 */
 @Service
-public class LogServiceImpl extends ServiceImpl<LogMapper, Log>
+public class LogServiceImpl extends ServiceImpl<LogMapper, LogEntity>
     implements LogService{
 
 }

@@ -1,6 +1,6 @@
 package com.xhn.hilihili.auth.mapper;
 
-import com.xhn.hilihili.auth.entity.Log;
+import com.xhn.hilihili.auth.entity.LogEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2023-06-11 19:46:31
 * @Entity com.xhn.hilihili.auth.entity.Log
 */
-public interface LogMapper extends BaseMapper<Log> {
+public interface LogMapper extends BaseMapper<LogEntity> {
 
 }
 

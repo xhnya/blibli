@@ -1,7 +1,7 @@
 package com.xhn.hilihili.auth.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xhn.hilihili.auth.entity.UserPermission;
+import com.xhn.hilihili.auth.entity.UserPermissionEntity;
 import com.xhn.hilihili.auth.service.UserPermissionService;
 import com.xhn.hilihili.auth.mapper.UserPermissionMapper;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 * @createDate 2023-06-11 19:46:15
 */
 @Service
-public class UserPermissionServiceImpl extends ServiceImpl<UserPermissionMapper, UserPermission>
+public class UserPermissionServiceImpl extends ServiceImpl<UserPermissionMapper, UserPermissionEntity>
     implements UserPermissionService{
 
 }

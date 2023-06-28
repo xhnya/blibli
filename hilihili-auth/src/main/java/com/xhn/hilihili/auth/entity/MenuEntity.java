@@ -9,27 +9,47 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 菜单和权限关联表，用于建立菜单和权限之间的关联关系
- * @TableName menu_permission
+ * 系统菜单表，用于定义系统中的菜单项，如导航菜单、侧边栏菜单等
+ * @TableName menu
  */
-@TableName(value ="menu_permission")
+@TableName(value ="menu")
 @Data
-public class MenuPermission implements Serializable {
+public class MenuEntity implements Serializable {
     /**
-     * 关联ID
+     * 菜单ID
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 菜单ID
+     * 菜单名称
      */
-    private Long menuId;
+    private String name;
 
     /**
-     * 权限ID
+     * 菜单编码
      */
-    private Long permissionId;
+    private String code;
+
+    /**
+     * 父级菜单ID
+     */
+    private Long parentId;
+
+    /**
+     * 菜单路径
+     */
+    private String path;
+
+    /**
+     * 菜单图标
+     */
+    private String icon;
+
+    /**
+     * 排序
+     */
+    private Integer sortOrder;
 
     /**
      * 创建时间
@@ -55,10 +75,14 @@ public class MenuPermission implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        MenuPermission other = (MenuPermission) that;
+        MenuEntity other = (MenuEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getMenuId() == null ? other.getMenuId() == null : this.getMenuId().equals(other.getMenuId()))
-            && (this.getPermissionId() == null ? other.getPermissionId() == null : this.getPermissionId().equals(other.getPermissionId()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+            && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
+            && (this.getPath() == null ? other.getPath() == null : this.getPath().equals(other.getPath()))
+            && (this.getIcon() == null ? other.getIcon() == null : this.getIcon().equals(other.getIcon()))
+            && (this.getSortOrder() == null ? other.getSortOrder() == null : this.getSortOrder().equals(other.getSortOrder()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -68,8 +92,12 @@ public class MenuPermission implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getMenuId() == null) ? 0 : getMenuId().hashCode());
-        result = prime * result + ((getPermissionId() == null) ? 0 : getPermissionId().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
+        result = prime * result + ((getParentId() == null) ? 0 : getParentId().hashCode());
+        result = prime * result + ((getPath() == null) ? 0 : getPath().hashCode());
+        result = prime * result + ((getIcon() == null) ? 0 : getIcon().hashCode());
+        result = prime * result + ((getSortOrder() == null) ? 0 : getSortOrder().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -82,8 +110,12 @@ public class MenuPermission implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", menuId=").append(menuId);
-        sb.append(", permissionId=").append(permissionId);
+        sb.append(", name=").append(name);
+        sb.append(", code=").append(code);
+        sb.append(", parentId=").append(parentId);
+        sb.append(", path=").append(path);
+        sb.append(", icon=").append(icon);
+        sb.append(", sortOrder=").append(sortOrder);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

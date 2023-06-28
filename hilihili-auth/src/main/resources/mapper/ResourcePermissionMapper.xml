@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xhn.hilihili.auth.mapper.ResourcePermissionMapper">
 
-    <resultMap id="BaseResultMap" type="com.xhn.hilihili.auth.entity.ResourcePermission">
+    <resultMap id="BaseResultMap" type="com.xhn.hilihili.auth.entity.ResourcePermissionEntity">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="resourceId" column="resource_id" jdbcType="BIGINT"/>
             <result property="permissionId" column="permission_id" jdbcType="BIGINT"/>

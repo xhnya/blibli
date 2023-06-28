@@ -9,12 +9,12 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 角色和权限关联表
- * @TableName role_permission
+ * 用户和角色关联表
+ * @TableName user_role_relation
  */
-@TableName(value ="role_permission")
+@TableName(value ="user_role_relation")
 @Data
-public class RolePermission implements Serializable {
+public class UserRoleRelationEntity implements Serializable {
     /**
      * 
      */
@@ -55,7 +55,7 @@ public class RolePermission implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        RolePermission other = (RolePermission) that;
+        UserRoleRelationEntity other = (UserRoleRelationEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getRoleId() == null ? other.getRoleId() == null : this.getRoleId().equals(other.getRoleId()))

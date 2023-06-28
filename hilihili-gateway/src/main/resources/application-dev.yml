@@ -27,3 +27,8 @@ spring:
           uri: lb://hilihili-admin
           predicates:
             - Path=/admin/**
+
+        - id: hilihili_auth
+          uri: lb://hilihili-auth
+          predicates:
+            - Path=/auth/**
