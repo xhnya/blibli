@@ -33,8 +33,8 @@ public class UserUsersServiceImpl extends ServiceImpl<UserUsersMapper, UserUsers
     public UserInfoVo loginForPhone(PhoneVo phoneVo) {
         //查询用户是否存在
 
-        Long count = baseMapper.selectCount(new QueryWrapper<UserUsersEntity>().eq("mobile", phoneVo.getPhone()));
-        if (count == 0){
+        UserUsersEntity userInfo = baseMapper.selectOne(new QueryWrapper<UserUsersEntity>().eq("mobile", phoneVo.getPhone()));
+        if (userInfo == null){
             //用户不存在，自动注册
             UserUsersEntity userUsersEntity = new UserUsersEntity();
             userUsersEntity.setMobile(phoneVo.getPhone());
@@ -47,6 +47,9 @@ public class UserUsersServiceImpl extends ServiceImpl<UserUsersMapper, UserUsers
             userUsersEntity.setRegisterTime(new Date());
             baseMapper.insert(userUsersEntity);
             //TODO: 设置用户信息
+        }else{
+            //用户存在，登录
+
         }
         return null;
     }
