@@ -38,6 +38,7 @@ public enum ResultCode implements IResultCode {
     LOGIN_CODE_ERROR(200142,"验证码错误"),
 
     LOGIN_COUNT_ERROR(200143,"账号状态异常"),
+    LOGIN_CODE_EXPIRED(200144,"验证码已过期"),
 
     REGISTER_ERROR(20015, "注册失败"),
 

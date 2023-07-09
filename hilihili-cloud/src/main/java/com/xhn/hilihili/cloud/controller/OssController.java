@@ -20,6 +20,10 @@ public class OssController {
     @Autowired
     private OssService ossService;
 
+
+
+
+
     @PostMapping("upload")
     public Result uploadOssFile(MultipartFile file){
         String url=ossService.uploadFileAvatar(file);

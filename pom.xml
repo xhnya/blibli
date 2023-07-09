@@ -21,6 +21,7 @@
         <module>hilihili-gateway</module>
         <module>hilihili-cloud</module>
         <module>hilihili-auth</module>
+        <module>hilihili-user</module>
     </modules>
 
     <properties>

@@ -3,8 +3,11 @@ package com.xhn.hilihili.auth.controller;
 import com.xhn.hilihili.auth.service.UserUsersService;
 import com.xhn.hilihili.auth.vo.PhoneVo;
 import com.xhn.hilihili.auth.vo.UserInfoVo;
+import com.xhn.hilihili.common.enums.ResultCode;
+import com.xhn.hilihili.common.exception.HilihiliException;
 import com.xhn.hilihili.common.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +31,9 @@ public class LoginController {
     @Autowired
     UserUsersService userUsersService;
 
+    @Autowired
+    RedisTemplate<Integer,Integer> redisTemplate;
+
 
 
     /**
@@ -45,6 +51,15 @@ public class LoginController {
     @PostMapping("/loginForPhone")
     public Result loginForPhone(@Validated @RequestBody PhoneVo phoneVo){
         //判断验证码是否正确
+        Integer code = redisTemplate.opsForValue().get(phoneVo.getPhone());
+        if (code==null){
+            throw new HilihiliException(ResultCode.LOGIN_CODE_EXPIRED.getCode(),ResultCode.LOGIN_CODE_EXPIRED.getMsg());
+        }
+        if(!code.equals(phoneVo.getCode())){
+            throw new HilihiliException(ResultCode.LOGIN_CODE_ERROR.getCode(),ResultCode.LOGIN_CODE_ERROR.getMsg());
+        }
+        //验证码正确，删除redis中的验证码
+        redisTemplate.delete(phoneVo.getPhone());
 
         UserInfoVo userInfo = userUsersService.loginForPhone(phoneVo);
         return Result.ok().data("userInfo",userInfo);
