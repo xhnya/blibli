@@ -32,7 +32,7 @@ public class LoginController {
     UserUsersService userUsersService;
 
     @Autowired
-    RedisTemplate<Integer,Integer> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
 
 
@@ -51,7 +51,7 @@ public class LoginController {
     @PostMapping("/loginForPhone")
     public Result loginForPhone(@Validated @RequestBody PhoneVo phoneVo){
         //判断验证码是否正确
-        Integer code = redisTemplate.opsForValue().get(phoneVo.getPhone());
+        Integer code = (Integer) redisTemplate.opsForValue().get(phoneVo.getPhone().toString());
         if (code==null){
             throw new HilihiliException(ResultCode.LOGIN_CODE_EXPIRED.getCode(),ResultCode.LOGIN_CODE_EXPIRED.getMsg());
         }
@@ -59,7 +59,7 @@ public class LoginController {
             throw new HilihiliException(ResultCode.LOGIN_CODE_ERROR.getCode(),ResultCode.LOGIN_CODE_ERROR.getMsg());
         }
         //验证码正确，删除redis中的验证码
-        redisTemplate.delete(phoneVo.getPhone());
+        redisTemplate.delete(phoneVo.getPhone().toString());
 
         UserInfoVo userInfo = userUsersService.loginForPhone(phoneVo);
         return Result.ok().data("userInfo",userInfo);

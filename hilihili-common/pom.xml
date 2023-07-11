@@ -24,6 +24,11 @@
             <artifactId>commons-pool2</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>com.baomidou</groupId>
