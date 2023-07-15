@@ -41,5 +41,11 @@ public class AdminController {
         return Result.ok();
     }
 
+
+
+    @GetMapping("/testHttp")
+    public Result testHttp(){
+        return Result.ok().data("test","test");
+    }
 }
 
