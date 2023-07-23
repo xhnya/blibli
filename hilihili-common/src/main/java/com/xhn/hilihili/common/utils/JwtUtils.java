@@ -27,7 +27,7 @@ public class JwtUtils {
                 .setHeaderParam("typ", "JWT")
                 .setHeaderParam("alg", "HS256")
 
-                .setSubject("bilibili-user")
+                .setSubject("hilihili-user")
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
 
@@ -78,13 +78,13 @@ public class JwtUtils {
      * @param request
      * @return
      */
-    public static String getUserInfoByJwtToken(HttpServletRequest request) {
+    public static Long getUserInfoByJwtToken(HttpServletRequest request) {
         String jwtToken = request.getHeader("token");
-        if(StringUtils.isEmpty(jwtToken)) return "";
+        if(StringUtils.isEmpty(jwtToken)) return Long.valueOf("");
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(APP_SECRET).parseClaimsJws(jwtToken);
         Claims claims = claimsJws.getBody();
-        Integer id = (Integer) claims.get("id");
-        return id.toString();
+        Long id = (Long) claims.get("id");
+        return id;
     }
 
 

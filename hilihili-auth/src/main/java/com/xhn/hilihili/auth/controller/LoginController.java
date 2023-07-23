@@ -66,5 +66,23 @@ public class LoginController {
     }
 
 
+    /**
+     * 退出登录
+     * @return
+     */
+    @PostMapping("/logout")
+    public Result logout(@RequestBody Long id){
+        /**
+         * 去除登录信息
+         */
+        return Result.ok();
+    }
+
+
+
+
+
+
+
 
 }
