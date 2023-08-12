@@ -1,5 +1,6 @@
 package com.xhn.hilihili.admin.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xhn.hilihili.admin.entity.PageImagesEntity;
@@ -57,6 +58,11 @@ public class PageImagesServiceImpl extends ServiceImpl<PageImagesMapper, PageIma
         Page<PageImagesEntity> page = new Page<>(pageRequest.getPage(),pageRequest.getSize());
         List<PageImagesEntity> result=pageImagesMapper.getPageImagesList(page,pageImagesListVo);
         return new PageUtils(result,(int)page.getTotal(),(int)page.getSize() ,(int)page.getCurrent());
+    }
+
+    @Override
+    public List<PageImagesEntity> list(PageImagesListVo pageImagesListVo) {
+        return list(new QueryWrapper<PageImagesEntity>().eq("type",pageImagesListVo.getType()));
     }
 
 

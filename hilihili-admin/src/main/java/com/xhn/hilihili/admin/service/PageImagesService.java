@@ -24,4 +24,6 @@ public interface PageImagesService extends IService<PageImagesEntity> {
 
 
     PageUtils getPageImagesList(PageRequest pageRequest, PageImagesListVo pageImagesListVo);
+
+    List<PageImagesEntity> list(PageImagesListVo pageImagesListVo);
 }

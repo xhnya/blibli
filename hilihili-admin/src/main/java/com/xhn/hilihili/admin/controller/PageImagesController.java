@@ -1,5 +1,6 @@
 package com.xhn.hilihili.admin.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xhn.hilihili.admin.entity.PageImagesEntity;
 import com.xhn.hilihili.admin.service.PageImagesService;
 import com.xhn.hilihili.admin.vo.PageImagesListVo;
@@ -41,8 +42,7 @@ public class PageImagesController {
      */
     @GetMapping("getPageImagesList")
     public Result getPageImagesList(@Valid PageImagesListVo pageImagesListVo) {
-        PageRequest pageRequest = new PageRequest(pageImagesListVo.getCurrentPage(), pageImagesListVo.getSize());
-        PageUtils result=pageImagesService.getPageImagesList(pageRequest,pageImagesListVo);
+       List<PageImagesEntity> result=pageImagesService.list(pageImagesListVo);
         return Result.ok().data("data",result);
     }
 
