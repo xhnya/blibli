@@ -1,0 +1,1 @@
+D:\ide\nacos\bin\startup.cmd

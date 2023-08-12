@@ -10,7 +10,7 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 logs/
-
+file/
 #输出文件
 */target
 # Package Files #
